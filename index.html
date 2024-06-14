@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Rutas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="mapas-y-ubicacion.png" alt="">
+        <h1>Gestión de Rutas</h1>
+    </header>
+    <main>
+        <section id="add-vertex">
+            <h2>Insertar lugar</h2>
+            <form id="vertex-form">
+                <label for="vertex-name">Nombre del lugar (utilice "-" para separar):</label>
+                <input type="text" id="vertex-name" name="vertex-name" required>
+                <button type="button" id="btn-addV">Añadir lugar</button>
+            </form>
+        </section>
+        <section id="add-edge">
+            <h2>Insertar Distancia entre dos lugares</h2>
+            <form id="edge-form">
+                <label for="start-vertex">Lugar Inicial:</label>
+                <input type="text" id="start-vertex" name="start-vertex" required>
+                <label for="end-vertex">Lugar Final:</label>
+                <input type="text" id="end-vertex" name="end-vertex" required>
+                <label for="insert-conex">Distancia:</label>
+                <input type="text" id="insert-conex" name="insert-conex" required>
+                <button type="button" id="btn-addC">Añadir distancia</button>
+            </form>
+        </section>
+        <section id="dfs-traversal">
+            <h2>Recorrido en Profundidad</h2>
+            <form id="dfs-form">
+                <label for="dfs-start">Lugar Inicial:</label>
+                <input type="text" id="dfs-start" name="dfs-start" required>
+                <button type="button" id="btn-dfs">Iniciar Recorrido</button>
+            </form>
+            <div id="dfs-result"></div>
+        </section>
+        <script type="module" src="./src/controllers/script.mjs">
+        </script>
+    </main>
+</body>
+</html>

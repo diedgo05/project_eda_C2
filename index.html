@@ -15,7 +15,7 @@
         <section id="add-vertex">
             <h2>Insertar lugar</h2>
             <form id="vertex-form">
-                <label for="vertex-name">Nombre del lugar (utilice "-" para separar):</label>
+                <label for="vertex-name">Nombre del lugar:</label>
                 <input type="text" id="vertex-name" name="vertex-name" required>
                 <button type="button" id="btn-addV">Añadir lugar</button>
             </form>
@@ -39,7 +39,35 @@
                 <input type="text" id="dfs-start" name="dfs-start" required>
                 <button type="button" id="btn-dfs">Iniciar Recorrido</button>
             </form>
-            <div id="dfs-result"></div>
+            <table border="0px">
+                <thead>
+                    <tr>
+                        <th>
+                            Lugares
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="dfs-result">
+
+                </tbody>
+            </table>
+        </section>
+        <section>
+        <label for="Vinit">Camino mas corto: </label>
+        <input type="text"  id="Vinit">
+        <button id="btn-dja">Aceptar</button>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Distancia más corta
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="dja-result"></tbody>
+            </table>
+        </div>
         </section>
         <script type="module" src="./src/controllers/script.mjs">
         </script>

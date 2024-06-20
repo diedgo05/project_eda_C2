@@ -1,21 +1,13 @@
-import   Graph  from '../models/Graph.mjs';
+import Graph from "../models/Graph.mjs";
 
-const graph = new Graph();
+let graph = new Graph();
 
 let btn_addV = document.getElementById('btn-addV')
 btn_addV.addEventListener('click', ()=> {
-    let vertexName = document.getElementById('vertex-name').value;
-    let vertices = vertexName.split('-')
-    console.log(vertexName)
-    console.log(vertices)
-
-    if (vertices.length == 1) {
-        graph.addV(vertices[0].trim())
-        addLugarTable(vertices[0].trim())
-    } else {
-        graph.addVertices(...vertices.map((v)=> v.trim()))
-    }
+    let vertexName = document.getElementById('vertex-name').value
+    graph.addV(vertexName)
     document.getElementById('vertex-name').value = '';
+    alert('Se ha agregado ' + vertexName)
 });
 
 let btn_addC = document.getElementById('btn-addC')
@@ -36,13 +28,28 @@ btn_addC.addEventListener('click', ()=> {
     }
 });
 
+
+let count = 0
 let btn_dfs = document.getElementById('btn-dfs')
+
 btn_dfs.addEventListener('click', ()=> {
     let lugarOrigin = document.getElementById('dfs-start').value;
-    graph.dfs(lugarOrigin,callback);
+    
+    if(count == 0){
+        graph.dfs(lugarOrigin,callback);
+    }
+
+    else{
+        count = 0;
+        graph.clearVisted()
+        graph.dfs(lugarOrigin,callback);
+    }
+
+    count++;
 });
 
 let body = document.getElementById('dfs-result')
+
 const callback = (nameLug) => {
     console.log(nameLug)
     addTable(nameLug)
@@ -57,3 +64,19 @@ let addTable = (nameLug) => {
     tr.appendChild(td)
     body.appendChild(tr)
 };
+
+let print = (d) =>{
+    let referencia = document.getElementById('dja-result');
+  
+    d.forEach(valor => {
+      let pel = document.createElement('p')
+      pel.textContent = valor;
+      console.log(pel)
+      referencia.appendChild(pel);
+  }); 
+  }
+  let btn_dijsktra = document.getElementById('btn-dja');
+  btn_dijsktra.addEventListener('click',()=>{
+    let vinit = document.getElementById('Vinit').value;
+    graph.dijkstra(vinit,print);
+  })

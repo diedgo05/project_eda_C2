@@ -75,26 +75,22 @@ button:hover {
     font-weight: bold;
 }
 
-#add-vertex, #add-edge, #dfs-traversal {
+#add-vertex, #add-edge, #dfs-traversal, #dja-traversal {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-#add-vertex h2, #add-edge h2, #dfs-traversal h2 {
+#add-vertex h2, #add-edge h2, #dfs-traversal h2, #dja-traversal h2 {
     font-size: 16px;
     font-weight: bold;
 }
 
-#add-vertex button, #add-edge button, #dfs-traversal button {
+#add-vertex button, #add-edge button, #dfs-traversal button, #dja-traversal button {
     width: 150px;
     align-self: center;
 }
 
-#dfs-result {
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+
+

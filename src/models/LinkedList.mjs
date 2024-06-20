@@ -1,4 +1,4 @@
-import Lugar from "../models/Lugar.mjs";
+import Lugar from "./Lugar.mjs"
 import Node from "./Node.mjs";
 
 export default class linkedList {
@@ -6,58 +6,45 @@ export default class linkedList {
     #count
 
     constructor(){
-        this.#head = null
+        this.#head = undefined
         this.#count = 0
     }
 
     push (name,weight) {
-        let lugarr = new Lugar(name, weight)
-        const node = new Node (lugarr)
-
-        if (this.#head == null) 
+        let lugar = new Lugar(name, weight)
+        let node = new Node (lugar)
+        let current
+        if (this.#head == null){
             this.#head = node
-            else {
-                let current = this.#head
-                while (current.next != null) {
-                    current = current.next
-                    current.next = node
-                }
-            }
-            this.#count++
+        }
+        else{
+            current = this.#head
+            while(current.next != null)
+                current = current.next
+            current.next = node
+        }
+        this.#count++
     }
 
-    getElementAt (index) {
-         this.#count = 0
-        let current = this.#head
-        while (current) {
-            if (this.#count === index) {
-                return current;
-            }
-            this.#count++
-            current = current.next;
+    getElementAt (index) { //modifique este metodo de la linked list
+        if(index >=0 && index<this.#count){
+            let node = this.#head
+            for(let i=0; i<index && node != null; i++)
+                node = node.next
+            return node
         }
-        return null
-}
+        return undefined
+    }
 
-    Empty(){
-    return (this.#head == null )  ? true : false
-     }
+    empty(){
+    //return (this.#head == null )  ? true : false
+    return this.size() === 0 //modifique aquí
+    }
      
     size(){
         return this.#count
     }
 
-    recorrido(callback) {
-        if (this.#head == null) {
-            console.log ('The linked list is empty')
-        }   else {
-            let node = this.#head
-            while (node != null) {
-                callback(node)
-                node = node.next
-            }
-        }
-    }
     getHead(){
         return this.#head
     }

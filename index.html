@@ -52,12 +52,13 @@
                 </tbody>
             </table>
         </section>
-        <section>
+        <section id="dja-traversal">
+            <form id="dja-form">
         <label for="Vinit">Camino mas corto: </label>
-        <input type="text"  id="Vinit">
-        <button id="btn-dja">Aceptar</button>
-        <div>
-            <table>
+        <input type="text"  id="Vinit" name="Vinit" required>
+        <button id="btn-dja" type="button">Aceptar</button>
+            </form>
+            <table border="0px">
                 <thead>
                     <tr>
                         <th>
@@ -67,7 +68,6 @@
                 </thead>
                 <tbody id="dja-result"></tbody>
             </table>
-        </div>
         </section>
         <script type="module" src="./src/controllers/script.mjs">
         </script>

@@ -70,7 +70,7 @@ button:hover {
     background-color: #b71c1c;
 }
 
-#dfs-result {
+#dfs-result, #dja-trasversal {
     margin-top: 10px;
     font-weight: bold;
 }
